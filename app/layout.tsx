@@ -12,21 +12,25 @@ const bungee = Bungee({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--bungee',
+  display: 'block',
 });
 const hahmlet = Hahmlet({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--hahmlet',
+  display: 'swap',
 });
 const gowunDodum = Gowun_Dodum({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--gowunDodum',
+  display: 'swap',
 });
 const ibm = IBM_Plex_Sans_KR({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
   variable: '--ibm',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {

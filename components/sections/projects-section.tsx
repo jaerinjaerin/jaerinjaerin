@@ -100,9 +100,15 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
         viewport={{ once: true }}
         className='text-center mt-12'
       >
-        <Link
+        {/* <Link
           href='/projects'
           className='inline-block px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg transition-all font-semibold'
+        >
+          View All Projects →
+        </Link> */}
+        <Link
+          href='/projects'
+          className='font-bungee border-none outline-none bg-[#6c5ce7] px-5 py-2.5 text-[13px] font-bold text-white rounded-[5px] transition-all shadow-[0_5px_0_0_#a29bfe] active:translate-y-[5px] active:shadow-[0_0_0_0_#a29bfe]'
         >
           View All Projects →
         </Link>
