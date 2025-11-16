@@ -2,7 +2,10 @@ import Image from 'next/image';
 
 export default function Projects() {
   return (
-    <div className='flex flex-col items-center justify-center py-20' id='projects'>
+    <div
+      className='flex flex-col items-center justify-center py-20'
+      id='projects'
+    >
       <h1 className='text-[40px] font-bungee font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20'>
         My Projects
       </h1>
@@ -36,7 +39,13 @@ interface ProjectCardProps {
 function ProjectCard({ src, title, description }: ProjectCardProps) {
   return (
     <div className='relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]'>
-      <Image src={src} alt={title} width={1000} height={1000} className='w-full object-contain' />
+      <Image
+        src={src}
+        alt={title}
+        width={1000}
+        height={1000}
+        className='w-full object-contain'
+      />
 
       <div className='relative p-4'>
         <h1 className='text-2xl font-semibold text-white'>{title}</h1>

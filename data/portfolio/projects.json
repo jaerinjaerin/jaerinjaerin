@@ -1,0 +1,41 @@
+[
+  {
+    "slug": "interactive-portfolio",
+    "title": "Interactive Portfolio",
+    "description": "Three.js와 Framer Motion을 활용한 인터랙티브 포트폴리오 웹사이트",
+    "thumbnail": "/images/projects/portfolio-thumb.jpg",
+    "tags": ["Next.js", "Three.js", "TypeScript", "Tailwind CSS"],
+    "period": {
+      "start": "2024-01",
+      "end": "2024-03"
+    },
+    "featured": true,
+    "order": 1
+  },
+  {
+    "slug": "e-commerce-platform",
+    "title": "E-Commerce Platform",
+    "description": "모던한 디자인의 이커머스 플랫폼 프론트엔드 개발",
+    "thumbnail": "/images/projects/ecommerce-thumb.jpg",
+    "tags": ["React", "Redux", "Stripe", "Styled Components"],
+    "period": {
+      "start": "2023-06",
+      "end": "2023-12"
+    },
+    "featured": true,
+    "order": 2
+  },
+  {
+    "slug": "task-management-app",
+    "title": "Task Management App",
+    "description": "팀 협업을 위한 태스크 관리 애플리케이션",
+    "thumbnail": "/images/projects/task-app-thumb.jpg",
+    "tags": ["Next.js", "Prisma", "PostgreSQL", "NextAuth"],
+    "period": {
+      "start": "2023-01",
+      "end": "2023-05"
+    },
+    "featured": false,
+    "order": 3
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "category": "Frontend",
+      "skills": ["JavaScript", "TypeScript", "React.js", "Next.js"]
+    },
+    {
+      "category": "3D & Animation",
+      "skills": []
+    },
+    {
+      "category": "Backend",
+      "skills": []
+    },
+    {
+      "category": "Tools & Others",
+      "skills": []
+    }
+  ]
+}

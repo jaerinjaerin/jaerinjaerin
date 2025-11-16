@@ -1,0 +1,123 @@
+---
+slug: interactive-portfolio
+title: Interactive Portfolio
+description: Three.js와 Framer Motion을 활용한 인터랙티브 포트폴리오 웹사이트
+thumbnail: /images/projects/portfolio-thumb.jpg
+tags:
+  - Next.js
+  - Three.js
+  - TypeScript
+  - Tailwind CSS
+period:
+  start: '2024-01'
+  end: '2024-03'
+featured: true
+order: 1
+role: Full Stack Developer
+team:
+  size: 1
+overview: 개인 포트폴리오를 새롭게 리뉴얼하여, Three.js를 활용한 3D 인터랙션과 Framer Motion을 통한 부드러운 애니메이션을 구현했습니다. 사용자의 마우스 움직임에 반응하는 3D 요소들과 스크롤 기반 애니메이션을 통해 몰입감 있는 경험을 제공합니다.
+problem: 기존 포트폴리오는 정적이고 단조로워 방문자들의 관심을 끌기 어려웠습니다. 개발자로서의 기술력과 창의성을 효과적으로 표현할 수 있는 방법이 필요했습니다.
+solution: Three.js와 React Three Fiber를 사용하여 3D 요소를 구현하고, Framer Motion으로 부드러운 페이지 전환과 스크롤 애니메이션을 추가했습니다. 성능 최적화를 위해 동적 임포트와 코드 스플리팅을 적용했습니다.
+results:
+  - 페이지 체류 시간 3배 증가
+  - 포트폴리오 문의 200% 증가
+  - Lighthouse 성능 점수 95점 달성
+technologies:
+  frontend:
+    - Next.js 14
+    - React 18
+    - TypeScript
+    - Tailwind CSS
+  animation:
+    - Three.js
+    - React Three Fiber
+    - Framer Motion
+  deployment:
+    - Vercel
+    - GitHub Actions
+links:
+  github: https://github.com/yourusername/portfolio
+  demo: https://yourportfolio.com
+images:
+  - /images/projects/portfolio-1.jpg
+  - /images/projects/portfolio-2.jpg
+  - /images/projects/portfolio-3.jpg
+---
+
+## 프로젝트 상세
+
+### 🎯 프로젝트 목표
+
+단순히 정보를 나열하는 포트폴리오가 아닌, **방문자가 경험하고 기억하는 포트폴리오**를 만드는 것이 목표였습니다.
+
+### 🚀 주요 기능
+
+#### 1. 3D 인터랙티브 배경
+- Three.js를 사용한 파티클 시스템
+- 마우스 움직임에 반응하는 3D 구체
+- 부드러운 카메라 이동과 회전
+
+#### 2. 스크롤 기반 애니메이션
+- Framer Motion을 활용한 섹션 전환
+- IntersectionObserver를 통한 뷰포트 감지
+- 스태거드 애니메이션으로 요소들이 순차적으로 나타남
+
+#### 3. 프로젝트 상세 페이지
+- MDX 기반 동적 콘텐츠
+- 이미지 갤러리와 라이트박스
+- 코드 스니펫 하이라이팅
+
+### 💡 기술적 도전과 해결
+
+#### 성능 최적화
+Three.js를 사용하면서 겪은 가장 큰 도전은 **성능 최적화**였습니다.
+
+```typescript
+// 동적 임포트로 초기 로딩 최적화
+const StarCanvas = dynamic(() => import('@/components/star-canvas'), {
+  ssr: false,
+  loading: () => <div>Loading...</div>
+});
+
+// useFrame 내부에서 최적화
+useFrame((state, delta) => {
+  if (ref.current) {
+    ref.current.rotation.x -= delta / 10;
+    ref.current.rotation.y -= delta / 15;
+  }
+});
+```
+
+#### 반응형 3D 경험
+다양한 화면 크기에서 일관된 3D 경험을 제공하기 위해:
+
+```typescript
+const [dpr, setDpr] = useState(1);
+
+useEffect(() => {
+  // 모바일에서는 pixel ratio를 낮춰 성능 향상
+  const pixelRatio = window.devicePixelRatio;
+  setDpr(pixelRatio > 2 ? 2 : pixelRatio);
+}, []);
+```
+
+### 📊 성과
+
+- **성능**: Lighthouse 점수 95점 달성
+- **접근성**: WCAG 2.1 AA 기준 충족
+- **사용자 반응**: 평균 체류 시간 3분 이상
+
+### 🎓 배운 점
+
+1. **3D 그래픽스**: Three.js의 기본 개념과 최적화 기법
+2. **애니메이션**: 물리 기반 애니메이션과 타이밍 함수
+3. **성능**: 렌더링 최적화와 메모리 관리
+4. **DX**: 개발 경험과 유지보수성의 중요성
+
+### 🔮 향후 계획
+
+- [ ] WebXR을 활용한 VR 지원
+- [ ] 다국어 지원 추가
+- [ ] 블로그 섹션 통합
+- [ ] 다크 모드 개선

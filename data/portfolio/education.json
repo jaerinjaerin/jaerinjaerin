@@ -1,0 +1,28 @@
+[
+  {
+    "id": "edu-1",
+    "institution": "제로베이스 프론트엔드 스쿨",
+    "degree": "수료",
+    "period": {
+      "start": "2022.04",
+      "end": "2022.12"
+    },
+    "description": [
+      "모던 자바스크립트 DeepDive'를 통한 자바스크립트 심화 학습",
+      "SPA 구현을 통한 상태 관리의 필요성"
+    ]
+  },
+  {
+    "id": "edu-2",
+    "institution": "코드스테이츠 프론트엔드 44기 부트캠프",
+    "degree": "수료",
+    "period": {
+      "start": "2023.03",
+      "end": "2023.08"
+    },
+    "description": [
+      "REST API 서버 구축 및 CRUD 애플리케이션 개발",
+      "React 기반 SPA 개발 경험"
+    ]
+  }
+]
