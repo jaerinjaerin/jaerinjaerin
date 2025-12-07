@@ -10,3 +10,8 @@ export const NAV_ICONS = [
   { id: 3, img: '/icons/user.svg' },
   { id: 4, img: '/icons/mode.svg' },
 ];
+
+export const FONT_WEIGHTS = {
+  subtitle: { min: 100, max: 400, default: 100 },
+  title: { min: 400, max: 900, default: 400 },
+};

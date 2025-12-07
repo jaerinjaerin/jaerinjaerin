@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-pretendard: var(--pretendard);
   --font-georama: var(--georama);
+  --font-playwrite: var(--playwrite);
   --breakpoint-3xl: 1920px;
 }
 

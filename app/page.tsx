@@ -1,9 +1,10 @@
-import Navbar from '@/components/navbar';
+import { Navbar, Welcome } from '@/components';
 
 export default function Page() {
   return (
     <main>
       <Navbar />
+      <Welcome />
     </main>
   );
 }

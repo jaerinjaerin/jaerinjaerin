@@ -2,7 +2,7 @@ import { NAV_LINKS, NAV_ICONS } from '@/constants';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 
-export default function Navbar() {
+export function Navbar() {
   return (
     <nav>
       <div>
