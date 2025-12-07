@@ -60,7 +60,7 @@ const setupTextHover = (container: HTMLElement | null, type: 'subtitle' | 'title
 
     letterCenters.forEach((center, index) => {
       const distance = Math.abs(mouseX - center);
-      const intensity = Math.exp(-(distance ** 2) / 2000);
+      const intensity = Math.exp(-(distance ** 2) / 20000);
       const weight = min + (max - min) * intensity;
 
       gsap.to(letters[index], {
@@ -119,7 +119,7 @@ export function Welcome() {
   return (
     <section id='welcome'>
       <p ref={subtitleRef}>{subtitleText}</p>
-      <h1 ref={titleRef} className='mt-14'>
+      <h1 ref={titleRef} className='mt-7'>
         {titleText}
       </h1>
 
