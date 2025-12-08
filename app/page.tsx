@@ -1,4 +1,5 @@
 import { Dock, Navbar, Welcome } from '@/components';
+import { TerminalWindow } from '@/components/windows';
 
 export default function Page() {
   return (
@@ -6,6 +7,7 @@ export default function Page() {
       <Navbar />
       <Welcome />
       <Dock />
+      <TerminalWindow />
     </main>
   );
 }

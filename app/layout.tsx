@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Georama, Edu_NSW_ACT_Hand_Pre } from 'next/font/google';
+import { Georama, Edu_NSW_ACT_Hand_Pre, IBM_Plex_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 
@@ -17,9 +17,15 @@ const georama = Georama({
 const playwrite = Edu_NSW_ACT_Hand_Pre({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
+  subsets: ['latin'],
   variable: '--playwrite',
 });
-
+const sansCode = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
+  variable: '--sansCode',
+});
 const pretendard = localFont({
   src: './fonts/PretendardVariable.woff2',
   variable: '--pretendard',
@@ -34,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`h-dvh w-dvw overflow-hidden ${pretendard.className} ${georama.variable} ${playwrite.variable}`}
+        className={`h-dvh w-dvw overflow-hidden ${pretendard.className} ${georama.variable} ${playwrite.variable} ${sansCode.variable}`}
         style={{
           backgroundImage: 'url(/images/wallpaper.png)',
           backgroundSize: 'cover',

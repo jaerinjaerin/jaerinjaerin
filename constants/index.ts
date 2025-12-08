@@ -37,3 +37,11 @@ export const WINDOW_CONFIG = {
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   trash: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
+
+export const TECH_STACK = [
+  { category: 'Frontend', items: ['Next.js', 'React.js', 'TypeScript'] },
+  { category: 'Mobile', items: ['Flutter'] },
+  { category: 'Styling', items: ['Tailwind CSS', 'CSS'] },
+  { category: 'Database', items: ['PostgreSQL', 'Prisma ORM'] },
+  { category: 'Dev Tools', items: ['Git', 'GitHub', 'GitLab'] },
+] as const;

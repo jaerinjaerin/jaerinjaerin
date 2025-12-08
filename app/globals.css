@@ -11,6 +11,7 @@
   --font-pretendard: var(--pretendard);
   --font-georama: var(--georama);
   --font-playwrite: var(--playwrite);
+  --font-sansCode: var(--sansCode);
   --breakpoint-3xl: 1920px;
 }
 
