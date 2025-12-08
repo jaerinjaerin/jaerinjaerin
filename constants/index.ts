@@ -1,8 +1,8 @@
 export const NAV_LINKS = [
-  { id: 1, name: 'Portfolio' },
-  { id: 2, name: 'Contact' },
-  { id: 3, name: 'Projects' },
-];
+  { id: 1, name: 'Projects', type: 'finder' },
+  { id: 2, name: 'Contact', type: 'contact' },
+  { id: 3, name: 'Resume', type: 'resume' },
+] as const;
 
 export const NAV_ICONS = [
   { id: 1, img: '/icons/wifi.svg' },
@@ -17,7 +17,7 @@ export const FONT_WEIGHTS = {
 };
 
 export const DOCK_APPS = [
-  { id: 'finder', name: ' Portfolio', icon: 'finder.png', canOpen: true },
+  { id: 'finder', name: 'Projects', icon: 'finder.png', canOpen: true },
   { id: 'safari', name: 'Articles', icon: 'safari.png', canOpen: true },
   { id: 'photos', name: 'Gallery', icon: 'photos.png', canOpen: true },
   { id: 'contact', name: 'Contact', icon: 'contact.png', canOpen: true },
@@ -44,4 +44,21 @@ export const TECH_STACK = [
   { category: 'Styling', items: ['Tailwind CSS', 'CSS'] },
   { category: 'Database', items: ['PostgreSQL', 'Prisma ORM'] },
   { category: 'Dev Tools', items: ['Git', 'GitHub', 'GitLab'] },
+] as const;
+
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    date: 'Nov 28, 2025',
+    title: '웹 사이트 최적화와 성능 개선, 꼭 해야하나요?',
+    image: '/images/blog1.jpg',
+    link: 'https://jaerinjaerin.github.io/blog/optimize-our-website-and-improve-our-performance',
+  },
+  {
+    id: 2,
+    date: 'Aug 23, 2025',
+    title: '허점이 없는 UI로 UX를 향상시키기',
+    image: '/images/blog2.png',
+    link: 'https://jaerinjaerin.github.io/blog/improve-ux-with-ui-without-loopholes',
+  },
 ] as const;

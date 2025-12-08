@@ -1,5 +1,131 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Architecture
+
+### Component Hierarchy
+
+```
+RootLayout (app/layout.tsx)
+└── Page (app/page.tsx)
+    ├── Navbar
+    ├── Welcome
+    ├── Dock
+    └── WindowWrapper (HOC)
+        ├── TerminalWindow
+        ├── FinderWindow
+        └── ...
+```
+
+### Sequence Diagrams
+
+#### 1. Window Open Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Dock
+    participant Store as Zustand Store
+    participant HOC as WindowWrapper
+    participant GSAP
+
+    User->>Dock: Click app icon
+    Dock->>Dock: toggleApp(app.id)
+    Dock->>Store: openWindow(windowKey)
+    Store->>Store: isOpen = true
+    Store->>Store: zIndex = nextZIndex++
+    Store-->>HOC: State update
+    HOC->>HOC: display: 'block'
+    HOC->>GSAP: Animate (scale, opacity, y)
+    GSAP-->>User: Window appears with animation
+```
+
+#### 2. Window Focus Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant HOC as WindowWrapper
+    participant Draggable as GSAP Draggable
+    participant Store as Zustand Store
+
+    User->>HOC: Click/Drag window
+    HOC->>Draggable: onPress event
+    Draggable->>Store: focusWindow(windowKey)
+    Store->>Store: zIndex = nextZIndex++
+    Store-->>HOC: State update
+    HOC->>HOC: Update style.zIndex
+    HOC-->>User: Window brought to front
+```
+
+#### 3. Window Close Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Controls as WindowControls
+    participant Store as Zustand Store
+    participant HOC as WindowWrapper
+
+    User->>Controls: Click close button (X)
+    Controls->>Store: closeWindow(windowKey)
+    Store->>Store: isOpen = false
+    Store->>Store: zIndex = INITIAL_Z_INDEX
+    Store->>Store: data = null
+    Store-->>HOC: State update
+    HOC->>HOC: display: 'none'
+    HOC-->>User: Window disappears
+```
+
+#### 4. Dock Hover Animation Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Dock
+    participant GSAP
+
+    User->>Dock: Mouse move over dock
+    Dock->>Dock: handleMouseMove()
+    loop For each icon
+        Dock->>Dock: Calculate distance from cursor
+        Dock->>Dock: intensity = exp(-distance²/2000)
+        Dock->>GSAP: Animate icon (scale, y)
+    end
+    GSAP-->>User: Icons scale up near cursor
+    User->>Dock: Mouse leave
+    Dock->>GSAP: resetIcons()
+    GSAP-->>User: Icons return to normal
+```
+
+### State Management
+
+```
+┌─────────────────────────────────────┐
+│        Zustand Window Store         │
+├─────────────────────────────────────┤
+│  windows: {                         │
+│    terminal: { isOpen, zIndex, data }│
+│    finder:   { isOpen, zIndex, data }│
+│    ...                              │
+│  }                                  │
+│  nextZIndex: number                 │
+├─────────────────────────────────────┤
+│  openWindow(key, data?)             │
+│  closeWindow(key)                   │
+│  focusWindow(key)                   │
+└─────────────────────────────────────┘
+```
+
+### Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Framework | Next.js 16, React 19, TypeScript 5 |
+| Styling | Tailwind CSS 4 |
+| State | Zustand 5 (with Immer) |
+| Animation | GSAP 3.13, @gsap/react |
+| Icons | Lucide React |
+
 ## Getting Started
 
 First, run the development server:

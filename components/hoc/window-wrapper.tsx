@@ -35,7 +35,7 @@ export function WindowWrapper<P extends object>(Component: ComponentType<P>, win
     }, [isOpen]);
 
     return (
-      <section id={windowKey} ref={ref} style={{ zIndex, display: isOpen ? 'block' : 'none' }} className='absolute'>
+      <section id={windowKey} ref={ref} style={{ zIndex, display: isOpen ? 'block' : 'none' }} className='absolute max-h-[80vh] overflow-y-auto'>
         <Component {...props} />
       </section>
     );

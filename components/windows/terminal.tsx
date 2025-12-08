@@ -7,19 +7,19 @@ import { WindowControls } from '../window-controlls';
 
 function Terminal() {
   return (
-    <div className='font-sansCode'>
+    <>
       <div id='window-header'>
         <WindowControls target='terminal' />
-        <h2>Tech Stack</h2>
+        <h2 className='font-pretendard'>Tech Stack</h2>
       </div>
-      <div className='techstack'>
+      <div className='techstack font-sansCode'>
         <p>
           <span className='font-bold'>@jaerin %</span>
-          show tech stack
+          {' show tech stack'}
         </p>
 
         <div className='label'>
-          <p>Category</p>
+          <p className='w-32'>Category</p>
           <p>Technologies</p>
         </div>
 
@@ -53,7 +53,7 @@ function Terminal() {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
