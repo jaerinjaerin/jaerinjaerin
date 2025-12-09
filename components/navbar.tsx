@@ -18,7 +18,6 @@ export function Navbar() {
             <li
               key={id}
               onClick={() => {
-                console.log('🍟 hi', type);
                 openWindow(type);
               }}
             >

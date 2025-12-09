@@ -62,3 +62,94 @@ export const BLOG_POSTS = [
     link: 'https://jaerinjaerin.github.io/blog/improve-ux-with-ui-without-loopholes',
   },
 ] as const;
+
+const WORK_LOCATION = {
+  id: 1,
+  type: 'work',
+  name: 'Work',
+  icon: '/icons/work.svg',
+  kind: 'folder',
+  children: [
+    // projects
+    {
+      id: 5,
+      name: 'Nike Ecommerce Website Application',
+      icon: '/images/folder.png',
+      kind: 'folder',
+      position: 'top-10 left-5', // icon poistion inside Finder
+      windowPoistion: 'top-[15vh] right-20',
+      children: [
+        {
+          id: 1,
+          name: 'Nike Project.txt', // 간단하게 내가 한 일
+          icon: '/images/txt.png',
+          kind: 'file',
+          fileType: 'txt',
+          position: 'top-5 left-10',
+          subtitle: '나이키 프로젝트임. 근데 내가 만든건 아님',
+          description: ['The Nicke eCommerce webdite is ', 'Instead of a simple online store'],
+        },
+        {
+          id: 2,
+          name: 'Nike.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          position: 'top-10 left-100',
+          href: 'https://www.naver.com',
+        },
+        {
+          id: 3,
+          name: 'More Detail.fig', //여기에 디테일한 내용 서술 ('/projects')
+          icon: '/images/plain.png',
+          kind: 'file',
+          fileType: 'fig',
+          position: 'top-10 left-50',
+          href: '/projects/1',
+        },
+        {
+          id: 4,
+          name: 'nike.png', //여기에 디테일한 내용 서술 ('/projects')
+          icon: '/images/image.png',
+          kind: 'file',
+          fileType: 'img',
+          imageUrl: '/images/blog1.jpg',
+          position: 'top-40 left-50',
+        },
+      ],
+    },
+  ],
+};
+
+const ABOUT_LOCATION = {
+  id: 2,
+  type: 'about',
+  name: 'About me',
+  icon: '/icons/info.svg',
+  kind: 'folder',
+  children: [],
+};
+
+const RESUME_LOCATION = {
+  id: 3,
+  type: 'resume',
+  name: 'Resume',
+  icon: '/icons/file.svg',
+  kind: 'folder',
+  children: [
+    {
+      id: 1,
+      name: 'Resume.pdf',
+      icon: '/images/pdf.png',
+      kind: 'file',
+      fileType: 'pdf',
+      poistion: 'top-0 left-0',
+    },
+  ],
+};
+
+export const LOCATIONS = {
+  work: WORK_LOCATION,
+  about: ABOUT_LOCATION,
+  resume: RESUME_LOCATION,
+};

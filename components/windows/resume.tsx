@@ -17,7 +17,7 @@ const PDFViewer = dynamic(
         const [numPages, setNumPages] = useState<number>(0);
 
         return (
-          <mod.Document file='/files/resume.pdf' onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
+          <mod.Document file='/files/resume.pdf' onLoadSuccess={({ numPages }) => setNumPages(numPages)} className='pointer-events-none'>
             {Array.from({ length: numPages }, (_, i) => (
               <mod.Page key={i + 1} pageNumber={i + 1} renderTextLayer renderAnnotationLayer />
             ))}
@@ -30,16 +30,19 @@ const PDFViewer = dynamic(
 
 function Resume() {
   return (
-    <div className='pointer-events-none'>
+    <div className='flex flex-col max-h-[80vh]'>
       <div id='window-header'>
         <WindowControls target='resume' />
         <h2>Resume.pdf</h2>
-
-        <Link href={'/files/resume.pdf'} download className='cursor-pointer'>
-          <Download className='icon' />
-        </Link>
+        <div>
+          <Link href={'/files/resume.pdf'} download className='cursor-pointer'>
+            <Download className='icon' />
+          </Link>
+        </div>
       </div>
-      <PDFViewer />
+      <div className='overflow-y-auto overflow-x-hidden'>
+        <PDFViewer />
+      </div>
     </div>
   );
 }

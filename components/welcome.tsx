@@ -102,7 +102,7 @@ export function Welcome() {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
 
-  const subtitleText = useMemo(() => renderText("Hey, I'm Jaerin! Welcome to my", 'text-3xl italic font-pretendard', 100), []);
+  const subtitleText = useMemo(() => renderText("Hi, I'm Jaerin! Welcome to my", 'text-3xl italic font-pretendard', 100), []);
 
   const titleText = useMemo(() => renderText('portfolio.', 'text-9xl italic font-playwrite', 400), []);
 

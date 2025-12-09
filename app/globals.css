@@ -370,6 +370,10 @@ body {
     @apply w-xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
 
     #window-header {
+      h2 {
+        @apply font-bold text-sm text-center w-full;
+      }
+
       p {
         @apply font-bold text-[#5f6266];
       }
