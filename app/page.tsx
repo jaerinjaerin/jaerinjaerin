@@ -1,5 +1,13 @@
-import { Dock, Navbar, Welcome } from '@/components';
-import { FinderWindow, ImageContentWindow, ResumeWindow, SafariWindow, TerminalWindow, TextWindow } from '@/components/windows';
+import { Dock, Home, Navbar, Welcome } from '@/components';
+import {
+  ContactWindow,
+  FinderWindow,
+  ImageContentWindow,
+  ResumeWindow,
+  SafariWindow,
+  TerminalWindow,
+  TextWindow,
+} from '@/components/windows';
 
 export default function Page() {
   return (
@@ -13,6 +21,8 @@ export default function Page() {
       <FinderWindow />
       <TextWindow />
       <ImageContentWindow />
+      <ContactWindow />
+      <Home />
     </main>
   );
 }

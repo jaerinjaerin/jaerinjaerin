@@ -22,10 +22,20 @@ export const useWindowStore = create<WindowState>()(
       set((state: WindowState) => {
         const win = state.windows[windowKey];
         if (!win) return;
+
+        // 이미 열려있는 창이면 focus만 수행
+        if (win.isOpen) {
+          win.zIndex = state.nextZIndex++;
+          if (data !== null) {
+            win.data = data;
+          }
+          return;
+        }
+
+        // 새로 여는 창
         win.isOpen = true;
-        win.zIndex = state.nextZIndex;
+        win.zIndex = state.nextZIndex++;
         win.data = data ?? win.data;
-        state.nextZIndex++;
       }),
 
     closeWindow: (windowKey: WindowKey) =>

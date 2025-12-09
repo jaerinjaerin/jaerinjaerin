@@ -4,5 +4,14 @@ import ResumeWindow from './resume';
 import FinderWindow from './finder';
 import TextWindow from './text';
 import ImageContentWindow from './image';
+import ContactWindow from './contact';
 
-export { TerminalWindow, SafariWindow, ResumeWindow, FinderWindow, TextWindow, ImageContentWindow };
+export {
+  TerminalWindow,
+  SafariWindow,
+  ResumeWindow,
+  FinderWindow,
+  TextWindow,
+  ImageContentWindow,
+  ContactWindow,
+};
