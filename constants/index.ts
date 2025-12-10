@@ -19,7 +19,7 @@ export const FONT_WEIGHTS = {
 export const DOCK_APPS = [
   { id: 'finder', name: 'Projects', icon: 'finder.png', canOpen: true },
   { id: 'safari', name: 'Articles', icon: 'safari.png', canOpen: true },
-  { id: 'photos', name: 'Gallery', icon: 'photos.png', canOpen: true },
+  { id: 'photos', name: 'Photos', icon: 'photos.png', canOpen: true },
   { id: 'contact', name: 'Contact', icon: 'contact.png', canOpen: true },
   { id: 'terminal', name: 'Skills', icon: 'terminal.png', canOpen: true },
   { id: 'trash', name: 'Archive', icon: 'trash.png', canOpen: false },
@@ -208,7 +208,6 @@ const RESUME_LOCATION = {
   ],
 };
 
-const GALLERY_LOCATION = {};
 const TRASH_LOCATION = {
   id: 4,
   type: 'trash',
@@ -237,9 +236,16 @@ const TRASH_LOCATION = {
   ],
 };
 
+export const PHOTOS_LOCATION = {
+  id: 5,
+  type: 'photos',
+  name: 'Photos',
+};
+
 export const LOCATIONS = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
+  photos: PHOTOS_LOCATION,
 };

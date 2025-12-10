@@ -14,7 +14,7 @@ function Contact() {
         <h2>Contact Me</h2>
       </div>
       <div className='p-5 space-y-5'>
-        <img src='/images/jaerin-2.jpg' className='w-20 rounded-full' />
+        <img src='/images/jaerin-2.png' className='w-30 rounded-full' />
 
         <h3>Let's Contact</h3>
         <p className='flex items-center gap-1 text-md text-gray-800'>
