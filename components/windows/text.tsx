@@ -10,6 +10,7 @@ interface TextData {
   image?: string;
   subtitle?: string;
   description?: string[];
+  description_detail?: string[];
 }
 
 function Text() {
@@ -17,7 +18,7 @@ function Text() {
   const data = windows.txtfile?.data as TextData | null;
   if (!data) return null;
 
-  const { name, image, subtitle, description } = data;
+  const { name, image, subtitle, description, description_detail } = data;
   return (
     <>
       <div id='window-header'>
@@ -32,15 +33,26 @@ function Text() {
           </div>
         ) : null}
 
-        {subtitle ? (
-          <h3 className='text-lg font-semibold'>{subtitle}</h3>
-        ) : null}
+        {subtitle ? <h3 className='text-lg font-semibold '>{subtitle}</h3> : null}
         {Array.isArray(description) && description.length > 0 ? (
-          <div className='space-y-4  leading-relaxed text-base text-gray-800'>
+          <div
+            className='space-y-4 leading-relaxed text-base text-gray-800 whitespace-pre-line
+'
+          >
             {description.map((para, idx) => (
               <p key={idx}>{para}</p>
             ))}
           </div>
+        ) : null}
+
+        {Array.isArray(description_detail) && description_detail.length > 0 ? (
+          <ul className='text-base text-red-100'>
+            {description_detail.map((para, idx) => (
+              <li key={idx} className=''>
+                {para}
+              </li>
+            ))}
+          </ul>
         ) : null}
       </div>
     </>

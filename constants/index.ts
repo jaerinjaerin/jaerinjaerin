@@ -103,52 +103,177 @@ const WORK_LOCATION = {
   children: [
     // projects
     {
-      id: 5,
-      name: 'Nike Ecommerce Website Application',
+      id: 101,
+      name: '🚌 마이루트',
       icon: '/images/folder.png',
       kind: 'folder',
       position: 'top-10 left-5', // icon poistion inside Finder
-      windowPoistion: 'top-[30vh] right-20',
+      windowPosition: 'top-[34vh] right-20',
       children: [
         {
           id: 1,
-          name: 'Nike Project.txt', // 간단하게 내가 한 일
+          name: '프로젝트 소개.txt', // 간단하게 내가 한 일
           icon: '/images/txt.png',
           kind: 'file',
           fileType: 'txt',
           position: 'top-5 left-10',
-          subtitle: '나이키 프로젝트임. 근데 내가 만든건 아님',
+          subtitle: '지오펜스 기반 장소 도착 알림 애플리케이션 ‘마이루트’',
+          image: '/images/jaerin-1.png',
           description: [
-            'The Nicke eCommerce webdite is ',
-            'Instead of a simple online store',
+            'Overview\n마이루트는 대중교통 출퇴근자를 위한 개인 맞춤형 경로 안내 앱입니다.\n자주 이용하는 출퇴근 경로를 저장하고, GPS 기반 위치 추적과 지오펜스 기술을 활용하여 정류장/역 도착 시 실시간 교통 정보를 푸시 알림으로 제공합니다. ',
+            '일정 : 2025.08 ~ 2025.12\n기술 스택 : Flutter, Hive, GoRouter, permission_handler, geolocator\n참여 인원 : 2인(프론트엔드 1인, 기획 1인)\n서비스 : 지오펜스 기반 네비게이션 자동 알림 애플리케이션',
+          ],
+          description_detail: [
+            '- **Naver Local API + Geocode API** 조합으로 **도로명/건물명 혼용 검색** 구현, 주소 검색 **실패율 감소**',
+            '- 위치 기반 푸시 알림의 **중복 발송**을 **전역 상태 기반 발송 이력 관리**로 방지, **동일 반경 재진입 시 1회만 발송**',
+            '- TextField에서 발생하는 **KeyUpEvent assertion 에러**를 Focus 위젯으로 키보드 이벤트를 래핑하고 **try-catch로 예외를 무시 처**리하여 해결',
+            '- 실제 이동 테스트가 어려운 환경에서 **시뮬레이터에 위치 이동 이벤트**를 주입하여 지오펜스 진입 시 푸시 알림이 정상 동작하는지 검증함',
+            '- Firbase Google Analaytics 연동 및 iOS App Store 배포',
           ],
         },
         {
           id: 2,
-          name: 'Nike.com',
+          name: 'myroute.com',
           icon: '/images/safari.png',
           kind: 'file',
           fileType: 'url',
-          position: 'top-10 left-100',
-          href: 'https://www.naver.com',
+          position: 'top-41 left-70',
+          href: 'https://myroute.bien.ltd/',
         },
         {
           id: 3,
-          name: 'More Detail.fig', //여기에 디테일한 내용 서술 ('/projects')
+          name: '프로젝트_상세설명.com', //여기에 디테일한 내용 서술 ('/projects')
           icon: '/images/plain.png',
           kind: 'file',
           fileType: 'fig',
-          position: 'top-10 left-50',
-          href: '/projects/1',
+          position: 'top-6 left-50',
+          href: '/project/myroute',
         },
         {
           id: 4,
-          name: 'nike.png', //여기에 디테일한 내용 서술 ('/projects')
+          name: '마이루트.png',
           icon: '/images/image.png',
           kind: 'file',
           fileType: 'img',
           imageUrl: '/images/blog1.jpg',
-          position: 'top-40 left-50',
+          position: 'top-40 left-20',
+        },
+      ],
+    },
+    {
+      id: 102,
+      name: '🌎 충남미술사 아카이브',
+      icon: '/images/folder.png',
+      kind: 'folder',
+      position: 'top-10 left-45', // icon poistion inside Finder
+      windowPosition: 'top-[10vh] left-10',
+      children: [
+        {
+          id: 1,
+          name: '프로젝트 소개.txt', // 간단하게 내가 한 일
+          icon: '/images/txt.png',
+          kind: 'file',
+          fileType: 'txt',
+          position: 'top-5 left-10',
+          subtitle: '인터랙티브 지도와 타임라인으로 시각화한 웹 사이트 ‘충남미술사 아카이브‘',
+          image: '/images/jaerin-1.png',
+          description: [
+            'Overview\n충남미술관에서 진행한 개화기(1876년)부터 1990년대까지의 충남 미술사 자료를 디지털화한 아카이브 플랫폼입니다.\n미술단체, 교육기관, 전시공간, 인물 등 4가지 카테고리로 분류된 데이터를 시기별·지역별로 필터링하여 탐색할 수 있으며,\n지도 위에 마커로 시각화하여 지리적 맥락에서 충남 미술사의 흐름을 파악할 수 있습니다.',
+            '**일정** : 2025.10 ~ 2025.12\n**기술 스택** : Next.js 15 (App Router), TypeScript, Tailwind CSS, Mapbox GL, Zustand\n**참여 인원** : 2인 (프론트엔드 1인, 기획 1인)\n**서비스** : 충남미술관 미술사 조사 결과물(2021~2024)의 디지털 아카이브 플랫폼',
+          ],
+          description_detail: [
+            '동일 좌표에 마커가 겹치는 문제를 Mapbox GL 클러스터링과 팝업 리스트로 해결, 100개 이상의 데이터를 지도에서 자연스럽게 탐색 가능하도록 개선',
+            'Drawer 열림 시 마커가 가려지는 이슈 발견, 뷰포트 감지 커스텀 훅으로 padding offset을 동적 계산하여 flyTo 애니메이션에 적용',
+            '개화기(1876년)부터 1990년대까지 120년간의 데이터를 드래그 슬라이더로 탐색하는 타임라인 구현',
+            '4가지 카테고리(작가/작품/전시/기관) 필터를 조합한 통합 검색 기능 개발',
+            'Lighthouse 성능 최적화로 Performance 점수 52→78점 개선, 초기 로딩 197ms → 94ms 단축 (52% 개선)',
+            '클라이언트 요구사항을 기능 명세서로 문서화하고 일정 내 프로젝트 완료',
+          ],
+        },
+        {
+          id: 2,
+          name: 'chungnam-arthistory.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          position: 'top-41 left-0',
+          href: 'https://chungnam-art-history.vercel.app/',
+        },
+        {
+          id: 3,
+          name: '프로젝트_상세설명.com',
+          icon: '/images/plain.png',
+          kind: 'file',
+          fileType: 'fig',
+          position: 'bottom-30 right-55',
+          href: '/project/chungnam-arthistory',
+        },
+        {
+          id: 4,
+          name: '충남미술사.png',
+          icon: '/images/image.png',
+          kind: 'file',
+          fileType: 'img',
+          imageUrl: '/images/blog1.jpg',
+          position: 'top-30 right-20',
+        },
+      ],
+    },
+    {
+      id: 103,
+      name: '🧸 피규어AI',
+      icon: '/images/folder.png',
+      kind: 'folder',
+      position: 'top-10 right-30',
+      windowPosition: 'top-[20vh] left-45',
+      children: [
+        {
+          id: 1,
+          name: '프로젝트 소개.txt', // 간단하게 내가 한 일
+          icon: '/images/txt.png',
+          kind: 'file',
+          fileType: 'txt',
+          position: 'top-41 left-0',
+          subtitle: 'AI 기반 이미지 생성 및 3D 모델 제작 SaaS 플랫폼 ‘피규어AI‘',
+          image: '/images/jaerin-1.png',
+          description: [
+            'Overview\nFigure AI는 사용자가 업로드한 사진을 기반으로 다양한 스타일의 3D 캐릭터 피규어로 자동 변환해주는 서비스입니다.\n생성된 캐릭터는 AR 환경에서 확인 가능하며, 실제 피규어 제작까지 확장 가능한 콘텐츠 커머스 플랫폼입니다.',
+            '**일정** : 2025.03 ~ 2025.08\n**기술 스택** : Next.js 15 (App Router), TypeScript, Three.js, SWR, Next Auth v4, Radix UI\n**참여 인원** : 4인 (기획 1인, 디자인 1인, 백엔드 1인, 프론트엔드 2인)\n**서비스** : 사용자 사진을 기반으로 프롬프트 없이 자동으로 2D/3D 이미지를 생성해주는 AI 기반 구독형 SaaS 플랫폼',
+          ],
+          description_detail: [
+            'Fetch API HTTP 왕복으로 인한 초기 로딩 지연을 서버 컴포넌트에서 DB 직접 접근하여 네트워크 오버헤드 제거, 초기 렌더링 속도 개선 및 사용자 경험 향상',
+            '설문 제출 시 Google Sheets 자동 저장 + Discord 실시간 알림으로 기획자가 개발자 도움 없이 데이터 확인, 팀 협업 효율 향상',
+            '토스페이먼츠 SDK 인라인 적용으로 페이지 이동 없이 즉시 결제 가능하게 하고, 플랜 변경 시 업그레이드/다운그레이드/예약/빌링키 등 다양한 사용자 환경 분기 처리로 일관된 결제 경험 제공',
+            'NextAuth v4 + Prisma로 소셜 로그인(Google/Kakao) 통합 인증 구현, 세션 관리 및 사용자 정보 동기화 및 사용자 경험 향상',
+            '브라우저 호환성과 성능을 고려하여 Three.js + React Three Fiber 선택, WebGL 기반으로 모바일에서도 60fps 유지',
+          ],
+        },
+        {
+          id: 2,
+          name: 'figureai.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          position: 'top-5 left-10',
+          href: 'https://figureai.app/',
+        },
+        {
+          id: 3,
+          name: '프로젝트_상세설명.com',
+          icon: '/images/plain.png',
+          kind: 'file',
+          fileType: 'fig',
+          position: 'bottom-30 right-55',
+          href: '/project/figure-ai',
+        },
+        {
+          id: 4,
+          name: '피규어AI.png',
+          icon: '/images/image.png',
+          kind: 'file',
+          fileType: 'img',
+          imageUrl: '/images/blog1.jpg',
+          position: 'top-30 right-20',
         },
       ],
     },
@@ -169,8 +294,7 @@ const ABOUT_LOCATION = {
       kind: 'file',
       fileType: 'txt',
       position: 'top-10 left-5',
-      subtitle:
-        '안녕하세요. 디테일과 간결함에 주의를 기울이는 개발자 이재린입니다.',
+      subtitle: '안녕하세요. 디테일과 간결함에 주의를 기울이는 개발자 이재린입니다.',
       image: '/images/jaerin-1.png',
       description: [
         '3년간 SI 환경에서 다양한 프론트엔드 프로젝트를 경험하며 성장해온 개발자입니다. Next.js 기반의 대시보드, 관리자 페이지, 기업 웹사이트 등 업종과 요구사항이 다른 10여 개 프로젝트의 프론트엔드를 담당했습니다.',
@@ -247,5 +371,4 @@ export const LOCATIONS = {
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
-  photos: PHOTOS_LOCATION,
 };
