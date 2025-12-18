@@ -92,6 +92,13 @@ export const BLOG_POSTS = [
     image: '/images/blog2.png',
     link: 'https://jaerinjaerin.github.io/blog/improve-ux-with-ui-without-loopholes',
   },
+  {
+    id: 3,
+    date: 'Jan 06, 2025',
+    title: '다국어를 지원하는 페이지 만들기',
+    image: '/images/blog3.png',
+    link: 'https://jaerinjaerin.github.io/blog/create-multi-lingual-page',
+  },
 ] as const;
 
 const WORK_LOCATION = {
@@ -165,7 +172,7 @@ const WORK_LOCATION = {
       name: '🌎 충남미술사 아카이브',
       icon: '/images/folder.png',
       kind: 'folder',
-      position: 'top-10 left-45', // icon poistion inside Finder
+      position: 'top-10 left-40', // icon poistion inside Finder
       windowPosition: 'top-[10vh] left-10',
       children: [
         {
@@ -250,7 +257,7 @@ const WORK_LOCATION = {
         },
         {
           id: 2,
-          name: 'figureai.com',
+          name: 'FigureAI.com',
           icon: '/images/safari.png',
           kind: 'file',
           fileType: 'url',
@@ -269,6 +276,64 @@ const WORK_LOCATION = {
         {
           id: 4,
           name: '피규어AI.png',
+          icon: '/images/image.png',
+          kind: 'file',
+          fileType: 'img',
+          imageUrl: '/images/blog1.jpg',
+          position: 'top-30 right-20',
+        },
+      ],
+    },
+    {
+      id: 104,
+      name: '🗺️ S+ Certification Quiz',
+      icon: '/images/folder.png',
+      kind: 'folder',
+      position: 'top-40 left-5',
+      windowPosition: 'top-[50vh] left-20',
+      children: [
+        {
+          id: 1,
+          name: '프로젝트 소개.txt', // 간단하게 내가 한 일
+          icon: '/images/txt.png',
+          kind: 'file',
+          fileType: 'txt',
+          position: 'top-41 left-0',
+          subtitle: '삼성 S+ 다국어 지원(i18n) 게이미피케이션 퀴즈 플랫폼',
+          image: '/images/jaerin-1.png',
+          description: [
+            '전 세계에 분포한 삼성 플러스 판매자들은 신제품이 출시될 때마다 제품 지식에 대한 인증을 통과하고 Expert 뱃지를 획득해야 합니다.\n이 필수 학습 과정의 참여도와 효과를 높이기 위해, 퀴즈 형식의 gamification을 적용한 인증 시스템을 개발했습니다.\n50개 이상의 언어를 지원하며, 브라우저의 언어를 파악하여 매칭되는 언어를 지원합니다.',
+            '**일정** : 2024.09 ~ 2025.01\n**기술 스택** : Next.js 14(App Router), TypeScript, Radix UI, Motion, Lottie, AWS SES, next-intl, Sentry, Google Analytics\n**참여 인원** : 6인(프론트엔드 2인, 백엔드 2인, 기획 2인)\n**서비스** : 삼성 S+ 사용자를 위한 50개국 언어 지원 게이미피케이션 인증 퀴즈 플랫폼',
+          ],
+          description_detail: [
+            '**다중 인증 타입(Sumtotal/Guest)** 통합 세션을 **JWT + Prisma Adapter**로 구현, **24시간 자동 갱신**으로 세션 만료 이탈 감소',
+            '**Accept-Language 헤더 파싱**으로 사용자 언어를 자동 감지하고, **폴백 매칭 알고리즘**으로 미지원 언어 처리 (**50개국 언어 대응**)',
+            '**Sentry 에러 모니터링** 도입으로 프로덕션 환경의 런타임 에러를 **실시간 추적**, **에러 원인 파악 시간 단축** 및 **평균 대응 시간 30% 감소**',
+            '**AWS SES + next-intl**로 **50개국 언어별** 이메일 템플릿 구축, 퀴즈 완료/배지 획득 시 **인증 메일 자동 발송**',
+            '**Google Analytics 이벤트 트래킹**으로 퀴즈 단계별 **이탈률과 완료율 분석**, **데이터 기반**으로 UX 개선점 도출 및 **기획팀과 공유**',
+          ],
+        },
+        {
+          id: 2,
+          name: 'S+Quiz.com',
+          icon: '/images/safari.png',
+          kind: 'file',
+          fileType: 'url',
+          position: 'top-5 left-10',
+          href: 'https://quiz.samsungplus.net/s25/login',
+        },
+        {
+          id: 3,
+          name: '프로젝트_상세설명.com',
+          icon: '/images/plain.png',
+          kind: 'file',
+          fileType: 'fig',
+          position: 'bottom-30 right-55',
+          href: '/project/s-plus-quiz',
+        },
+        {
+          id: 4,
+          name: 'S+Quiz.png',
           icon: '/images/image.png',
           kind: 'file',
           fileType: 'img',
