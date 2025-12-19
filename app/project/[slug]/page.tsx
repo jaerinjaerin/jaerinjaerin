@@ -55,29 +55,35 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className='mb-12'>
           <h1 className='text-[clamp(1.875rem,5.86vw,3.75rem)] font-bold'>{project.title}</h1>
           <p className='text-[clamp(0.875rem,1.75vw,1.25rem)] text-black/45 mb-6'>{project.description}</p>
-          <div className='flex items-center flex-wrap gap-2 mb-4'>
-            {project.tags.map((tag) => (
-              <span key={tag} className='px-3 py-1 border border-black rounded-full text-[clamp(0.75rem,1.36vw,0.875rem)]'>
-                {tag}
-              </span>
-            ))}
-          </div>
+          {project.tags && project.tags.length > 0 && (
+            <div className='flex items-center flex-wrap gap-2 mb-4'>
+              {project.tags.map((tag) => (
+                <span key={tag} className='px-3 py-1 border border-black rounded-full text-[clamp(0.75rem,1.36vw,0.875rem)]'>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
           {/* meta */}
-          <div className='flex flex-col lg:flex-row gap-1 lg:gap-6 text-black/60 text-[clamp(0.75rem,1.36vw,0.875rem)]'>
-            <div>
-              <span className='font-semibold'>Period:</span> {project.period.start} ~ {project.period.end}
-            </div>
-            <div className='hidden lg:block'>
-              <span className='font-semibold'>Role:</span> {project.role}
-            </div>
-            <div className='hidden lg:block'>
-              {project.team && (
+          {(project.period || project.role || project.team) && (
+            <div className='flex flex-col lg:flex-row gap-1 lg:gap-6 text-black/60 text-[clamp(0.75rem,1.36vw,0.875rem)]'>
+              {project.period && (
                 <div>
+                  <span className='font-semibold'>Period:</span> {project.period.start} ~ {project.period.end}
+                </div>
+              )}
+              {project.role && (
+                <div className='hidden lg:block'>
+                  <span className='font-semibold'>Role:</span> {project.role}
+                </div>
+              )}
+              {project.team && (
+                <div className='hidden lg:block'>
                   <span className='font-semibold'>Team Size:</span> {project.team.size}
                 </div>
               )}
             </div>
-          </div>
+          )}
           {/* link */}
           {project.links && (
             <div className='flex gap-3 mt-6 text-[clamp(0.875rem,1.75vw,1rem)]'>
