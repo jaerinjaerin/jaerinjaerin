@@ -4,8 +4,8 @@ import localFont from 'next/font/local';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: '포트폴리오 | 이재린',
-  description: '프론트엔드 개발자 이재린의 포트폴리오입니다.',
+  title: '이재린 | Lee Jaerin',
+  description: 'Welcome to my portfolio!',
 };
 
 const georama = Georama({

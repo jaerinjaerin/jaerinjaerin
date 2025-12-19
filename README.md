@@ -1,5 +1,31 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Features
+
+### macOS-Style Desktop UI
+- **Dock**: 마우스 호버 시 아이콘이 부드럽게 확대되는 macOS 스타일 Dock
+- **Draggable Windows**: GSAP Draggable을 활용한 드래그 가능한 윈도우 시스템
+- **Window Management**: z-index 기반 윈도우 포커스 및 상태 관리
+
+### Window Applications
+| Window | Description |
+|--------|-------------|
+| **Finder** | 프로젝트 폴더 탐색, 파일 미리보기 |
+| **Terminal** | 기술 스택 표시 |
+| **Safari** | 블로그 포스트 목록 |
+| **Resume** | PDF 이력서 뷰어 |
+| **Contact** | 소셜 링크 (GitHub, Blog, Mail, Instagram) |
+| **Photos** | 이미지 갤러리 |
+
+### Project Detail Pages
+- **MDX 기반 콘텐츠**: Markdown + JSX로 프로젝트 상세 설명
+- **코드 하이라이팅**: Shiki + rehype-pretty-code
+- **반응형 clamp()**: 뷰포트에 따라 자동 조절되는 타이포그래피
+
+### Animations
+- **GSAP**: 윈도우 열기/닫기, Dock 호버 효과
+- **Smooth Transitions**: 부드러운 UI 인터랙션
+
 ## Architecture
 
 ### Component Hierarchy
