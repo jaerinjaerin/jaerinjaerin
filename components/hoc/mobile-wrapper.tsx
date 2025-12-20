@@ -1,18 +1,16 @@
 'use client';
-
-import { useWindowStore, WindowKey } from '@/store/window';
-import { useGSAP } from '@gsap/react';
+import { MobileKey, useMobileWindowStore } from '@/store/mobile-window';
 import { ComponentType, useLayoutEffect, useRef } from 'react';
-import { gsap, Draggable } from '@/lib/gsap';
+import { useGSAP } from '@gsap/react';
 
-export function WindowWrapper<P extends object>(
+export function MobileWindowWrapper<P extends object>(
   Component: ComponentType<P>,
-  windowKey: WindowKey
+  mobileKey: MobileKey
 ) {
   const Wrapped = (props: P) => {
-    const { focusWindow, windows } = useWindowStore();
-    const { isOpen, zIndex } = windows[windowKey];
     const ref = useRef<HTMLElement>(null);
+    const { mobileWindows } = useMobileWindowStore();
+    const { isOpen, zIndex } = mobileWindows[mobileKey];
 
     useGSAP(() => {
       const el = ref.current;
@@ -20,17 +18,6 @@ export function WindowWrapper<P extends object>(
 
       el.style.display = 'block';
     }, [isOpen]);
-
-    useGSAP(() => {
-      const el = ref.current;
-      if (!el) return;
-
-      const [instance] = Draggable.create(el, {
-        onPress: () => focusWindow(windowKey),
-      });
-
-      return () => instance.kill();
-    }, []);
 
     useLayoutEffect(() => {
       const el = ref.current;
@@ -40,18 +27,18 @@ export function WindowWrapper<P extends object>(
 
     return (
       <section
-        id={windowKey}
+        id={mobileKey}
         ref={ref}
         style={{ zIndex, display: isOpen ? 'block' : 'none' }}
-        className='absolute'
+        className='absolute w-dvw h-dvh inset-0'
       >
         <Component {...props} />
       </section>
     );
   };
-
-  Wrapped.displayName = `WindowWrapper(${
+  Wrapped.displayName = `MobileWindowWrapper(${
     Component.displayName || Component.name || 'Component'
   })`;
+
   return Wrapped;
 }

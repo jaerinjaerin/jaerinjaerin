@@ -1,8 +1,10 @@
 'use client';
+
 import { FONT_WEIGHTS } from '@/constants';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useMemo, useRef } from 'react';
+import { useWindowWidth } from '@/hooks/use-window-width';
 
 const renderText = (text: string, className: string, baseWeight = 400) => {
   return [...text].map((char, i) => (
@@ -19,7 +21,9 @@ const renderText = (text: string, className: string, baseWeight = 400) => {
 };
 
 // RAF throttle에 cancel 기능 추가
-const throttleRAF = <T extends (...args: Parameters<T>) => void>(callback: T) => {
+const throttleRAF = <T extends (...args: Parameters<T>) => void>(
+  callback: T
+) => {
   let rafId: number | null = null;
 
   const throttled = (...args: Parameters<T>) => {
@@ -41,7 +45,10 @@ const throttleRAF = <T extends (...args: Parameters<T>) => void>(callback: T) =>
   return throttled;
 };
 
-const setupTextHover = (container: HTMLElement | null, type: 'subtitle' | 'title') => {
+const setupTextHover = (
+  container: HTMLElement | null,
+  type: 'subtitle' | 'title'
+) => {
   if (!container) return;
 
   const letters = Array.from(container.querySelectorAll('span'));
@@ -101,10 +108,19 @@ const setupTextHover = (container: HTMLElement | null, type: 'subtitle' | 'title
 export function Welcome() {
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
-
-  const subtitleText = useMemo(() => renderText("Hi, I'm Jaerin! Welcome to my", 'text-3xl italic font-pretendard', 100), []);
-
-  const titleText = useMemo(() => renderText('portfolio.', 'text-9xl italic font-playwrite', 400), []);
+  const subtitleText = useMemo(
+    () =>
+      renderText(
+        "Hi, I'm Jaerin! Welcome to my",
+        'text-3xl italic font-pretendard',
+        100
+      ),
+    []
+  );
+  const titleText = useMemo(
+    () => renderText('portfolio.', 'text-9xl italic font-playwrite', 400),
+    []
+  );
 
   useGSAP(() => {
     const cleanupTitle = setupTextHover(titleRef.current, 'title');
@@ -122,8 +138,6 @@ export function Welcome() {
       <h1 ref={titleRef} className='mt-7'>
         {titleText}
       </h1>
-
-      <div className='small-screen'>This Portfolio is designed for desktop</div>
     </section>
   );
 }

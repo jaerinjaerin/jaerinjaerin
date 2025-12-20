@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import { Tooltip } from 'react-tooltip';
 import gsap from 'gsap';
 import { useWindowStore, type WindowKey } from '@/store/window';
+import { useWindowWidth } from '@/hooks/use-window-width';
 
 export function Dock() {
   const { openWindow, closeWindow, windows } = useWindowStore();
@@ -39,7 +40,10 @@ export function Dock() {
       animateIcons(e.clientX - left);
     };
 
-    const resetIcons = () => icons.forEach((icon) => gsap.to(icon, { scale: 1, y: 0, duration: 0.3, ease: 'power1.out' }));
+    const resetIcons = () =>
+      icons.forEach((icon) =>
+        gsap.to(icon, { scale: 1, y: 0, duration: 0.3, ease: 'power1.out' })
+      );
 
     dock.addEventListener('mousemove', handleMouseMove);
     dock.addEventListener('mouseleave', resetIcons);
@@ -64,8 +68,6 @@ export function Dock() {
     } else {
       openWindow(app.id);
     }
-
-    console.log(windows);
   };
 
   return (
@@ -83,7 +85,14 @@ export function Dock() {
               disabled={!canOpen}
               onClick={() => toggleApp({ id, canOpen })}
             >
-              <Image src={`/images/${icon}`} alt={name} width={141} height={142} loading='lazy' className={canOpen ? '' : 'opacity-60'} />
+              <Image
+                src={`/images/${icon}`}
+                alt={name}
+                width={141}
+                height={142}
+                loading='lazy'
+                className={canOpen ? '' : 'opacity-60'}
+              />
             </button>
           </div>
         ))}

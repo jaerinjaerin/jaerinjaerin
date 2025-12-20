@@ -3,7 +3,6 @@ import { SOCIALS } from '@/constants';
 import { WindowWrapper } from '../hoc/window-wrapper';
 import { WindowControls } from '../window-controlls';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Globe } from 'lucide-react';
 
 function Contact() {
@@ -13,12 +12,14 @@ function Contact() {
         <WindowControls target='contact' />
         <h2>Contact Me</h2>
       </div>
-      <div className='p-5 space-y-5'>
-        <img src='/images/jaerin-2.png' className='w-30 rounded-full' />
+      <div className='p-5'>
+        <img src='/images/jaerin-2.png' className='w-30 mb-5 rounded-full' />
 
-        <h3>Let's Contact</h3>
-        <p className='flex items-center gap-1 text-md text-gray-800'>
-          <Globe /> 대한민국 경기도 의정부시 (한국 표준시)
+        <h3>이재린 | Lee Jaerin</h3>
+        <p className='mb-3 px-3 text-sm text-black/60'>프론트엔드 개발자</p>
+        <p className='px-3 flex items-center gap-1 text-md text-black/80'>
+          <Globe size={20} className='text-black/80' /> 대한민국 경기도 (한국
+          표준시)
         </p>
 
         <ul>

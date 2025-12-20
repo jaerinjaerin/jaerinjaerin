@@ -51,28 +51,28 @@ export const SOCIALS = [
     id: 1,
     text: 'Github',
     icon: '/icons/github.svg',
-    bg: '#f4656b',
+    bg: '#1179BA',
     link: 'https://www.github.com/jaerinjaerin',
   },
   {
     id: 2,
     text: 'Blog',
     icon: '/icons/atom.svg',
-    bg: '#4bcb63',
+    bg: '#F9B343',
     link: 'https://jaerinjaerin.github.io/',
   },
   {
     id: 3,
     text: 'Mail',
     icon: '/icons/mail.svg',
-    bg: '#ff866b',
+    bg: '#FC5C4D',
     link: 'mailto:jrlee_0922@naver.com',
   },
   {
     id: 4,
     text: 'Instagram',
     icon: '/icons/instagram.svg',
-    bg: '#05b6f6',
+    bg: '#923275',
     link: 'https://www.instagram.com/lee_jaell/',
   },
 ] as const;
@@ -92,6 +92,13 @@ export const BLOG_POSTS = [
     image: '/images/blog2.png',
     link: 'https://jaerinjaerin.github.io/blog/improve-ux-with-ui-without-loopholes',
   },
+] as const;
+
+export const PHOTOS = [
+  { id: 1, image: '/images/blog1.jpg' },
+  { id: 2, image: '/images/blog1.jpg' },
+  { id: 3, image: '/images/blog1.jpg' },
+  { id: 4, image: '/images/blog1.jpg' },
 ] as const;
 
 const WORK_LOCATION = {
@@ -236,16 +243,9 @@ const TRASH_LOCATION = {
   ],
 };
 
-export const PHOTOS_LOCATION = {
-  id: 5,
-  type: 'photos',
-  name: 'Photos',
-};
-
 export const LOCATIONS = {
   work: WORK_LOCATION,
   about: ABOUT_LOCATION,
   resume: RESUME_LOCATION,
   trash: TRASH_LOCATION,
-  photos: PHOTOS_LOCATION,
 };

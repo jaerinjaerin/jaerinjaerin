@@ -13,8 +13,6 @@ export function Finder() {
   const { activeLocation, setActiveLocation } = useLocationStore();
   const { openWindow, windows } = useWindowStore();
 
-  console.log('➡️➡️➡️ activeLocation', activeLocation, windows);
-
   const openItem = (item: LocationItem) => {
     if ('fileType' in item && item.fileType === 'pdf')
       return openWindow('resume');
