@@ -14,21 +14,11 @@ export function Finder() {
   const { openWindow, windows } = useWindowStore();
 
   const openItem = (item: LocationItem) => {
-    if ('fileType' in item && item.fileType === 'pdf')
-      return openWindow('resume');
-    if (item.kind === 'folder' && 'children' in item)
-      return setActiveLocation(item as Location);
-    if (
-      'fileType' in item &&
-      'href' in item &&
-      item.href &&
-      ['fig', 'url'].includes(item.fileType)
-    )
-      return window.open(item.href, '_blank');
-    if ('fileType' in item && item.fileType === 'txt')
-      return openWindow('txtfile', item);
-    if ('fileType' in item && item.fileType === 'img')
-      return openWindow('imgfile', item);
+    if ('fileType' in item && item.fileType === 'pdf') return openWindow('resume');
+    if (item.kind === 'folder' && 'children' in item) return setActiveLocation(item as Location);
+    if ('fileType' in item && 'href' in item && item.href && ['fig', 'url'].includes(item.fileType)) return window.open(item.href, '_blank');
+    if ('fileType' in item && item.fileType === 'txt') return openWindow('txtfile', item);
+    if ('fileType' in item && item.fileType === 'img') return openWindow('imgfile', item);
   };
 
   const renderList = (name: string, items: Location[]) => (
@@ -36,13 +26,7 @@ export function Finder() {
       <h3>{name}</h3>
       <ul>
         {items.map((item) => (
-          <li
-            key={item.id}
-            onClick={() => setActiveLocation(item)}
-            className={clsx(
-              item.id === activeLocation.id ? 'active' : 'not-active'
-            )}
-          >
+          <li key={item.id} onClick={() => setActiveLocation(item)} className={clsx(item.id === activeLocation.id ? 'active' : 'not-active')}>
             <Image src={item.icon} alt={item.name} width={16} height={16} />
             <p className='text-sm font-medium truncate'>{item.name}</p>
           </li>
@@ -64,11 +48,7 @@ export function Finder() {
         </div>
         <ul className='content'>
           {activeLocation.children.map((item) => (
-            <li
-              key={item.id}
-              className={'position' in item ? item.position : ''}
-              onClick={() => openItem(item)}
-            >
+            <li key={item.id} className={'position' in item ? item.position : ''} onClick={() => openItem(item)}>
               <Image src={item.icon} alt={item.name} width={64} height={64} />
               <p>{item.name}</p>
             </li>
