@@ -16,21 +16,21 @@ export function MobileWindowWrapper<P extends object>(
       const el = ref.current;
       if (!el || !isOpen) return;
 
-      el.style.display = 'block';
+      el.style.display = 'flex';
     }, [isOpen]);
 
     useLayoutEffect(() => {
       const el = ref.current;
       if (!el) return;
-      el.style.display = isOpen ? 'block' : 'none';
+      el.style.display = isOpen ? 'flex' : 'none';
     }, [isOpen]);
 
     return (
       <section
         id={mobileKey}
         ref={ref}
-        style={{ zIndex, display: isOpen ? 'block' : 'none' }}
-        className='absolute w-dvw h-dvh inset-0'
+        style={{ zIndex, display: isOpen ? 'flex' : 'none' }}
+        className='absolute w-dvw h-dvh inset-0 flex flex-col'
       >
         <Component {...props} />
       </section>

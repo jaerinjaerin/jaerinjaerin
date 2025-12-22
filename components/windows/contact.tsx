@@ -1,5 +1,5 @@
 'use client';
-import { SOCIALS } from '@/constants';
+import { PROFICIENCY, SOCIALS } from '@/constants';
 import { WindowWrapper } from '../hoc/window-wrapper';
 import { WindowControls } from '../window-controlls';
 import Link from 'next/link';
@@ -18,19 +18,21 @@ function Contact() {
         <h3>이재린 | Lee Jaerin</h3>
         <p className='mb-3 px-3 text-sm text-black/60'>프론트엔드 개발자</p>
         <p className='px-3 flex items-center gap-1 text-md text-black/80'>
-          <Globe size={20} className='text-black/80' /> 대한민국 경기도 (한국
-          표준시)
+          <Globe size={20} className='text-black/80' /> 대한민국 경기도 (한국 표준시)
         </p>
+
+        <ul className='flex flex-col'>
+          {PROFICIENCY.map((item, index) => (
+            <li className='w-full p-0' key={index}>
+              ✨ {item}
+            </li>
+          ))}
+        </ul>
 
         <ul>
           {SOCIALS.map(({ id, icon, bg, link, text }) => (
             <li key={id} style={{ backgroundColor: bg }}>
-              <Link
-                href={link}
-                target='_blank'
-                rel='noopener noreferrer'
-                title={text}
-              >
+              <Link href={link} target='_blank' rel='noopener noreferrer' title={text}>
                 <img src={icon} alt={text} className='size-5' />
                 <p>{text}</p>
               </Link>

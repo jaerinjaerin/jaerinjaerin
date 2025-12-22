@@ -19,17 +19,10 @@ function ImageContent() {
         <h2>{name}</h2>
       </div>
 
-      <div className='p-5 bg-white'>
+      <div className='p-5 bg-white h-[60vh]'>
         {imageUrl ? (
-          <div className='w-full mx-auto'>
-            <Image
-              src={imageUrl}
-              alt={name}
-              width={0}
-              height={0}
-              sizes='100vw'
-              className='w-auto h-auto max-w-full max-h-[70vh] object-contain mx-auto'
-            />
+          <div className='w-full mx-auto h-full'>
+            <Image src={imageUrl} alt={name} width={0} height={0} sizes='100vw' className='w-auto h-full max-w-full  object-contain mx-auto' />
           </div>
         ) : null}
       </div>

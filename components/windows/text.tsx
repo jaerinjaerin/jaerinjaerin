@@ -5,6 +5,16 @@ import { WindowWrapper } from '../hoc/window-wrapper';
 import { WindowControls } from '../window-controlls';
 import Image from 'next/image';
 
+function parseMarkdown(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
 interface TextData {
   name: string;
   image?: string;
@@ -40,16 +50,16 @@ function Text() {
 '
           >
             {description.map((para, idx) => (
-              <p key={idx}>{para}</p>
+              <p key={idx}>{parseMarkdown(para)}</p>
             ))}
           </div>
         ) : null}
 
         {Array.isArray(description_detail) && description_detail.length > 0 ? (
-          <ul className='text-base text-red-100'>
+          <ul className='text-base'>
             {description_detail.map((para, idx) => (
-              <li key={idx} className=''>
-                {para}
+              <li key={idx} className='list-disc ml-3'>
+                {parseMarkdown(para)}
               </li>
             ))}
           </ul>
