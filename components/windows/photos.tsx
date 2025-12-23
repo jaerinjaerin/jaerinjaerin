@@ -28,7 +28,7 @@ function Photos() {
             <ul>
               <li>
                 <Image src='/icons/photo.svg' alt='photos' width={16} height={16} />
-                <p>All Photos</p>
+                <p>Library</p>
               </li>
             </ul>
           </div>
@@ -36,11 +36,7 @@ function Photos() {
         <div className='content gallery'>
           <ul>
             {PHOTOS.map(({ id, image }, index) => (
-              <li
-                key={id}
-                onClick={() => handleImageClick(image, index)}
-                className='relative cursor-pointer hover:opacity-80 transition-opacity'
-              >
+              <li key={id} onClick={() => handleImageClick(image, index)} className='relative cursor-pointer hover:opacity-80 transition-opacity'>
                 <Image src={image} fill alt={image} className='object-cover rounded-lg' />
               </li>
             ))}

@@ -14,18 +14,13 @@ function Photos() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [clickedImageRect, setClickedImageRect] = useState<DOMRect | null>(
-    null
-  );
+  const [clickedImageRect, setClickedImageRect] = useState<DOMRect | null>(null);
   const imageRefs = useRef<(HTMLElement | null)[]>([]);
   const popupRef = useRef<HTMLDivElement>(null);
   const popupImageRef = useRef<HTMLDivElement>(null);
   console.log('➡️➡️➡️ mboile', mobileWindows);
 
-  const handleImageClick = (
-    index: number,
-    e: React.MouseEvent<HTMLElement>
-  ) => {
+  const handleImageClick = (index: number, e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setClickedImageRect(rect);
     setSelectedIndex(index);
@@ -77,12 +72,7 @@ function Photos() {
 
   // 팝업 열릴 때 애니메이션
   useEffect(() => {
-    if (
-      selectedIndex !== null &&
-      popupRef.current &&
-      popupImageRef.current &&
-      clickedImageRect
-    ) {
+    if (selectedIndex !== null && popupRef.current && popupImageRef.current && clickedImageRect) {
       // 초기 상태 설정
       gsap.set(popupRef.current, { opacity: 0 });
       gsap.set(popupImageRef.current, {
@@ -165,7 +155,7 @@ function Photos() {
     <div className='flex flex-col h-full'>
       <div id='window-header' className='shrink-0'>
         <MobileControls />
-        <h2>All Photos</h2>
+        <h2>Library</h2>
       </div>
       <div className='gallery overflow-y-auto flex-1 pb-4'>
         <ul>
@@ -202,16 +192,8 @@ function Photos() {
           </button>
 
           {/* 이미지 */}
-          <div
-            ref={popupImageRef}
-            className='relative w-full h-full flex items-center justify-center p-4'
-          >
-            <Image
-              src={PHOTOS[selectedIndex].image}
-              alt={PHOTOS[selectedIndex].image}
-              fill
-              className='object-contain'
-            />
+          <div ref={popupImageRef} className='relative w-full h-full flex items-center justify-center p-4'>
+            <Image src={PHOTOS[selectedIndex].image} alt={PHOTOS[selectedIndex].image} fill className='object-contain' />
           </div>
         </div>
       )}
