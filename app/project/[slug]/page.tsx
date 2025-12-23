@@ -135,7 +135,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {(project.problem || project.solution) && (
           <div className='flex flex-col lg:flex-row gap-6 mb-6'>
             {project.problem && (
-              <section className='border border-red-300/60 rounded-2xl px-6 py-4 flex gap-3 w-1/2'>
+              <section className='border border-red-300/60 rounded-2xl px-6 py-4 flex gap-3 lg:w-1/2'>
                 <div className='text-[clamp(0.875rem,1.75vw,1.25rem)]'>⚠️</div>
                 <div className='space-y-1'>
                   <span className='text-[clamp(0.875rem,1.75vw,1.25rem)] font-bold text-red-400'>Problem</span>
@@ -144,7 +144,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </section>
             )}
             {project.solution && (
-              <section className='border border-primary/60 rounded-2xl px-6 py-4 flex gap-3 w-1/2'>
+              <section className='border border-primary/60 rounded-2xl px-6 py-4 flex gap-3 lg:w-1/2'>
                 <div className='text-[clamp(0.875rem,1.75vw,1.25rem)]'>✅</div>
                 <div className='space-y-1'>
                   <h2 className='text-[clamp(0.875rem,1.75vw,1.25rem)] font-bold text-primary'>Solution</h2>

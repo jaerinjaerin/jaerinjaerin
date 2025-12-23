@@ -1,21 +1,18 @@
 'use client';
 
 import { Dock, Home, Navbar, Welcome } from '@/components';
-import {
-  ContactWindow,
-  FinderWindow,
-  ImageContentWindow,
-  ResumeWindow,
-  SafariWindow,
-  TerminalWindow,
-  TextWindow,
-} from '@/components/windows';
+import { ContactWindow, FinderWindow, ImageContentWindow, PhotosWindow, ResumeWindow, SafariWindow, TerminalWindow, TextWindow } from '@/components/windows';
 import {
   ContactMobileWindow,
   MobileDock,
   PhotosMobileWindow,
   ResumeMobileWindow,
   SafariMobileWindow,
+  TerminalMobileWindow,
+  FinderMobileWindow,
+  FolderMobileWindow,
+  TextMobileWindow,
+  ImageContentMobileWindow,
 } from '@/components/mobile';
 
 import { useWindowWidth } from '@/hooks/use-window-width';
@@ -41,6 +38,7 @@ export default function Page() {
         <TextWindow />
         <ImageContentWindow />
         <ContactWindow />
+        <PhotosWindow />
         <Home />
       </main>
     );
@@ -51,9 +49,13 @@ export default function Page() {
       <MobileDock />
       <SafariMobileWindow />
       <PhotosMobileWindow />
-      <ImageContentWindow />
+      <ImageContentMobileWindow />
       <ContactMobileWindow />
       <ResumeMobileWindow />
+      <TerminalMobileWindow />
+      <FinderMobileWindow />
+      <FolderMobileWindow />
+      <TextMobileWindow />
       <MobileHome />
     </main>
   );

@@ -11,34 +11,22 @@ export function MobileHome() {
   return (
     <ul className='p-7 container mx-auto grid grid-cols-4'>
       <li onClick={() => openMobileWindow('resume')}>
-        <Image
-          src={'/images/mobile-resume.png'}
-          alt={'resume'}
-          width={56}
-          height={56}
-          className='object-contain mx-auto '
-        />
-        <p className='font-medium text-xs mt-1.5 text-white text-center backdrop-blur-lg'>
-          Resume
-        </p>
+        <Image src={'/images/mobile-resume.png'} alt={'resume'} width={56} height={56} className='object-contain mx-auto ' />
+        <p className='font-medium text-xs mt-1.5 text-white text-center backdrop-blur-lg'>Resume</p>
+      </li>
+      <li onClick={() => openMobileWindow('terminal')}>
+        <Image src={'/images/mobile-music.png'} alt={'resume'} width={56} height={56} className='object-contain mx-auto ' />
+        <p className='font-medium text-xs mt-1.5 text-white text-center backdrop-blur-lg'>Tech</p>
       </li>
       {projects.map((project) => (
         <li
           key={project.id}
           className={clsx('group folder')}
-          // onClick={() => handleOpenProjectFinder(project)}
+          onClick={() => openMobileWindow('folder', project)}
         >
-          <Image
-            src={'/images/folder.png'}
-            alt={project.name}
-            width={56}
-            height={56}
-            className='object-contain mx-auto aspect-square '
-          />
+          <Image src={'/images/folder.png'} alt={project.name} width={56} height={56} className='object-contain mx-auto aspect-square ' />
 
-          <p className='font-medium text-xs mt-1.5 text-white text-center backdrop-blur-lg line-clamp-1'>
-            {project.name}
-          </p>
+          <p className='font-medium text-xs mt-1.5 text-white text-center backdrop-blur-lg line-clamp-1'>{project.name}</p>
         </li>
       ))}
     </ul>

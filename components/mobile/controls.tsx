@@ -7,7 +7,7 @@ export function MobileControls() {
   const { goBack } = useMobileWindowStore();
 
   return (
-    <div className='flex gap-1 items-center' onClick={goBack}>
+    <div className='flex items-center ' onClick={goBack}>
       <ChevronLeft /> Go back
     </div>
   );

@@ -30,7 +30,7 @@ function Contact() {
             </li>
           ))}
         </ul>
-        <ul>
+        <ul className='mb-5'>
           {SOCIALS.map(({ id, icon, bg, link, text }) => (
             <li key={id} style={{ backgroundColor: bg }}>
               <Link href={link} target='_blank' rel='noopener noreferrer' title={text}>
