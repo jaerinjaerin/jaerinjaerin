@@ -56,7 +56,7 @@ function Text() {
         ) : null}
 
         {Array.isArray(description_detail) && description_detail.length > 0 ? (
-          <ul className='text-base'>
+          <ul className='text-base space-y-1'>
             {description_detail.map((para, idx) => (
               <li key={idx} className='list-disc ml-3'>
                 {parseMarkdown(para)}

@@ -1,0 +1,145 @@
+---
+slug: figure-ai
+title: 피규어 AI
+description: AI 기반 이미지 생성 및 3D 모델 제작 SaaS 플랫폼
+thumbnail: /projects/figure-ai/1.png
+tags:
+  - Next.js 15 (App Router)
+  - TypeScript
+  - Tailwind CSS
+  - Three.js
+  - SWR
+  - Next Auth v4
+  - Radix UI
+period:
+  start: '2025.03'
+  end: '2025.08'
+featured: true
+order: 1
+role: Frontend Developer
+team:
+  size: 4인 (기획 1인, 디자인 1인, 백엔드 1인, 프론트엔드 2인)
+overview: Figure AI는 사용자가 업로드한 사진을 기반으로 다양한 스타일의 3D 캐릭터 피규어로 자동 변환해주는 서비스입니다. 생성된 캐릭터는 AR 환경에서 확인 가능하며, 실제 피규어 제작까지 확장 가능한 콘텐츠 커머스 플랫폼입니다.
+problem: AI 이미지 생성의 복잡한 흐름을 20대 타겟층에게 쉽고 빠르게 전달하는 문제가 있었습니다.
+solution: 드래그앤드롭 업로드, 실시간 생성 진행률 표시, 스타일 미리보기 등 직관적인 UI를 설계하고, 최소한의 단계로 결과물을 확인할 수 있는 간결한 플로우를 구현했습니다.
+links:
+  demo: https://figureai.app/
+images:
+  - /projects/figure-ai/2.gif
+  - /projects/figure-ai/4.png
+  - /projects/figure-ai/3.png
+---
+
+## 🎯 프로젝트 상세
+
+### 1. Fetch API로 인한 초기 로딩 지연을 **DB 직접 접근으로 변경하여** **네트워크 오버헤드 제거**, **초기 렌더링 속도 개선** 및 사용자 경험 향상
+
+- **문제 및 원인**
+  - 초기 페이지 로딩 시 서버 컴포넌트에서 내부 API를 fetch로 호출하여 불필요한 네트워크 왕복이 발생
+  - 동일 서버 내에서 HTTP 요청을 거치는 구조로 인해 초기 렌더링이 지연됨.
+- **해결 과정**
+
+  - 잦은 mutation이 발생하지 않는 정적 데이터의 경우, 서버에서 직접 조회하여 초기 렌더링 시 즉시 제공하는 것이 사용자 경험에 유리하다고 판단함
+  - 서버 컴포넌트에서 Fetch API 호출 대신 Prisma를 통해 DB에 직접 접근하는 방식으로 변경
+
+    ```tsx
+    import prisma form '../prisma';
+    import { getUserLocale } from '@/lib/locale';
+
+    export const getSubsriptionPlans = async() => {
+      const locale = await getUserLocale();
+
+      const plans = await prisma.subscriptionPlan.findMany({
+        where: {
+          isAcive:true,
+          OR:[
+            { locale: locale },
+            { locale: null }
+          ],
+        },
+        orderByd: {
+          displayOrder: "asc",
+        },
+      })
+
+      return plans;
+    }
+    ```
+
+- **결과**
+  - 불필요한 네트워크 홉 제거로 초기 렌더링 속도 개선
+  - 서버 리소스 사용 효율화 및 응답 지연 감소로 사용자 체감 성능 향상
+
+### 2. 설문 제출 시 **Google Sheets 자동 저장 + Discord 실시간 알림 기능 구현**
+
+![image.png](/projects/figure-ai/8.png)
+
+- **문제 및 원인**
+  - 사용자 피드백 확인을 위해 기획자가 개발자에게 데이터 추출을 요청해야 했음.
+  - Google Sheets 연동으로 접근성을 개선했으나, 시트를 직접 열어봐야 하는 구조적 한계로 실시간 대응이 어려웠음.
+- **해결 과정**
+  - `api/feedback` 엔드포인트를 통해 피드백 데이터를 Google Sheets에 자동 저장하도록 구현
+    ```tsx
+    try{
+    	setLoading(true);
+    	const response = await fetch("/api/feddback", {
+    		method: "POST",
+    		headers: {
+    			"Content-Type": "application/json",
+    		},
+    		body: JSON.stringify(data)
+    	})
+    } catch(error){ //... }
+    ```
+  - Discord Webhook을 추가하여 피드백 제출 즉시 알림이 발송되도록 개선, 실시간 모니터링 및 즉각 대응이 가능해짐.
+    ```tsx
+    const response = await fetch(DISCORD_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+    ```
+- **결과**
+  - 기획자가 스프레드시트에서 직접 데이터 조회/분석 가능 → 데이터 요청 대기 시간 제거
+  - 설문 제출 즉시 Discord 알림 발송 → 피드백 인지 시간 단축
+  - 개발자의 데이터 추출 업무 제거를 통해 DX 개선 및 팀 간 업무 의존도 감소
+
+### 🚀 결과 / 기여
+
+- 로딩 상태, 에러 핸들링 등 UI 컴포넌트를 재사용 가능하도록 구현했습니다.
+  ![image.png](/projects/figure-ai/9.png)
+- 정적 데이터는 서버 컴포넌트에서 직접 조회하고, 실시간 갱신이 필요한 데이터는 SWR을 활용하여 데이터 페칭 전략을 최적화했습니다.
+- 디자이너, 기획자와의 커뮤니케이션을 통해 20대 타겟층에 적합한 UI/UX 스타일을 적용했습니다.
+
+### 💡 주요 구현 사항
+
+1. 이미지 생성(2D)
+   - 다양한 AI 스타일 미리보기 제공
+   - 드래그앤드롭 이미지 업로드
+   - 실시간 생성 진행률 표시
+2. 크레딧 시스템
+   - 무료 티켓: 월 6장 자동 지급
+   - 구독 플랜별 티켓 제공
+   - 유료 티켓 구매
+3. 구독 및 결제
+   - 월간 정기 결제
+   - 플랜 변경 및 플랜 취소
+   - 결제 내역 조회
+4. 인증 / 인가
+   - Kakao, Google 소셜 로그인
+   - 최초 로그인 시, 약관 동의 여부 세션 업데이트
+5. 사용자 생성 콘텐츠 관리
+   - 생성 이미지 저장/관리
+   - 공유 링크 생성
+6. 상태 관리 전략
+   - 서버 상태: Prisma + SWR
+   - 클라이언트 상태: Zustand
+   - 인증 상태: NextAuth.js (JWT 세션)
+
+### 🎓 배운 점 (Lessons Learned)
+
+1. **URL 설계는 사용자 경험과 직결된다**: Query Parameter와 Path Parameter 중 어떤 방식을 선택할지 고민하며 라우팅 구조를 깊이 이해할 수 있었습니다. 리소스 식별에는 Path(`/style/anime`), 필터링/정렬에는 Query(`?sort=latest`)를 사용하는 기준을 세웠고, URL만 봐도 페이지의 맥락을 파악할 수 있도록 설계하는 것이 사용자 경험에 영향을 미친다는 것을 배웠습니다.
+
+2. **관심사의 분리가 유지보수성을 높인다**: 비즈니스 로직은 Custom Hook에서 처리하고, 컴포넌트는 전달받은 데이터를 렌더링하는 역할만 담당하도록 분리했습니다. 이렇게 "멍청한 컴포넌트(Dumb Component)" 패턴을 적용하니 UI 변경 시 로직을 건드리지 않아도 되어 수정 범위가 명확해지고, 테스트와 재사용이 쉬워졌습니다.

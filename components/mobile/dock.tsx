@@ -8,13 +8,9 @@ import { MobileKey, useMobileWindowStore } from '@/store/mobile-window';
 
 export function MobileDock() {
   const dockRef = useRef<HTMLDivElement>(null);
-  const { mobileWindows, openMobileWindow, closeMobileWindow } =
-    useMobileWindowStore();
+  const { mobileWindows, openMobileWindow, closeMobileWindow } = useMobileWindowStore();
 
-  const toggleApp = (
-    app: { id: MobileKey; canOpen: boolean },
-    e: React.MouseEvent
-  ) => {
+  const toggleApp = (app: { id: MobileKey; canOpen: boolean }, e: React.MouseEvent) => {
     if (!app.canOpen) return;
 
     // 클릭된 버튼 요소에 애니메이션 적용
@@ -56,13 +52,7 @@ export function MobileDock() {
               onClick={(e) => toggleApp({ id, canOpen }, e)}
               style={{ willChange: 'transform' }}
             >
-              <Image
-                src={`/images/${icon}`}
-                alt={name}
-                width={60}
-                height={60}
-                className={canOpen ? '' : 'opacity-60'}
-              />
+              <Image src={`/images/${icon}`} alt={name} width={60} height={60} className={canOpen ? '' : 'opacity-60'} />
             </button>
           </div>
         ))}

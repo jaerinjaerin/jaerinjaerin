@@ -94,7 +94,7 @@ body {
     @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none lg:w-auto w-[90%];
 
     .dock-container {
-      @apply bg-white/20 backdrop-blur-md lg:justify-between rounded-full lg:rounded-2xl p-3 lg:w-auto lg:p-1.5 flex items-end lg:gap-1.5;
+      @apply bg-white/20 backdrop-blur-md justify-center lg:justify-between rounded-full lg:rounded-2xl p-3 lg:w-auto lg:p-1.5 flex items-end lg:gap-1.5 gap-5;
     }
 
     .tooltip {
